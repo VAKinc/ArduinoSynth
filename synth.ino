@@ -22,6 +22,4 @@ void loop() {
     if(toggle_button.getButton()){
         light.toggle();
     }
-    
-    light.glow();
 }

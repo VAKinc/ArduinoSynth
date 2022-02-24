@@ -25,10 +25,12 @@ namespace synth{
                 _state = LED_OFF;
                 break;
         }
+
+        this->glow();
     }
 
     /** 
-     * Illuminates the AnalogLED. Should be called in the main loop of the sketch.
+     * Illuminates the AnalogLED
     */
     void AnalogLED::glow(){
         switch (_state){

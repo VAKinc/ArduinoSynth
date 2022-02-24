@@ -22,6 +22,9 @@ namespace synth {
      * Class that controls Analog LEDs, capable of dimming
      * 
      * @param p The pin number that corresponds to this LED
+     * @param low The value the LED should be at when low
+     * @param mid The value the LED should be at when mid
+     * @param high The value the LED should be at when high
     */
     class AnalogLED {
         public:
@@ -51,7 +54,6 @@ namespace synth {
             }
             ~AnalogLED (){}
 
-            void glow();
             void toggle();
         
         private:
@@ -60,6 +62,8 @@ namespace synth {
             int _low_value;
             int _mid_value;
             int _high_value;
+
+            void glow();
     };
 
 }
