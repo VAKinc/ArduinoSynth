@@ -1,11 +1,11 @@
 #include "src/drivers/button.hh"
-#include "src/drivers/led.hh"
+#include "src/drivers/analog_led.hh"
 #include "src/core/time.hh"
 
 using namespace synth;
 
 Button toggle_button(2);
-LED light(13, 50, 200);
+AnalogLED light(11, 20, 100, 255);
 
 void setup() {
     // initialize digital pin LED_BUILTIN as an output.
