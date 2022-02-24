@@ -1,5 +1,6 @@
 #include "Arduino.h"
 #include "led.hh"
+#include "../core/time.hh"
 
 namespace synth{
     /** 
@@ -54,9 +55,9 @@ namespace synth{
      * @param rate the rate at which to blink in milliseconds
     */
     void LED::blink(int rate){
-        _delta_time = millis();
-        if(_delta_time - _last_update >= rate){
-            _last_update = _delta_time;
+        unsigned long d_time = Time::deltaTime();
+        if(d_time - _last_update >= rate){
+            _last_update = d_time;
             _blink_value = _blink_value == HIGH ? LOW : HIGH;
             digitalWrite(_pin, _blink_value);
         }

@@ -24,11 +24,9 @@ namespace synth {
     class LED {
         public:
             LED (int p, int fast_rate = 200, int slow_rate = 1000){
-                _state = LED_OFF;
                 _pin = p;
                 _blink_rate_fast = fast_rate;
                 _blink_rate_slow = slow_rate;
-                _blink_value = LOW;
                 
                 pinMode(_pin, OUTPUT);
             }
@@ -39,12 +37,12 @@ namespace synth {
         
         private:
             int _pin;
-            LEDState _state;
+            LEDState _state = LED_OFF;
             int _blink_rate_fast;
             int _blink_rate_slow;
-            int _blink_value;
+            int _blink_value = LOW;
             unsigned long _last_update = 0;
-            unsigned long _delta_time = 0;
+            // unsigned long _delta_time = 0;
 
             void blink(int rate);
     };

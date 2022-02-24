@@ -19,7 +19,6 @@ namespace synth {
     class Button {
         public:
             Button (int p){
-                _state = BTN_NEUTRAL;
                 _pin = p;
                 
                 pinMode(_pin, INPUT);
@@ -33,7 +32,9 @@ namespace synth {
         
         private:
             int _pin;
-            ButtonState _state;
+            ButtonState _state = BTN_NEUTRAL;
+            unsigned long _last_debounce_time = 0;
+            const int _debounce_rate = 50;
     };
 
 }
