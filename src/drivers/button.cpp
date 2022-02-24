@@ -12,7 +12,7 @@ namespace synth{
     bool Button::getButton(){
         unsigned long d_time = Time::deltaTime();
 
-        if(d_time - _last_debounce_time >= _debounce_rate){
+        if(d_time - _last_debounce_time >= BTN_POLLING_RATE){
             _last_debounce_time = d_time;
             int button_value = digitalRead(_pin);
 

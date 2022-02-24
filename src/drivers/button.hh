@@ -9,7 +9,7 @@ namespace synth {
         BTN_NEUTRAL
     };
     
-    // Buttons require a resitor after recieving current
+    const int BTN_POLLING_RATE = 20;
 
     /** 
      * Class that controls buttons
@@ -34,7 +34,6 @@ namespace synth {
             int _pin;
             ButtonState _state = BTN_NEUTRAL;
             unsigned long _last_debounce_time = 0;
-            const int _debounce_rate = 50;
     };
 
 }
