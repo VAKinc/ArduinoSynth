@@ -21,10 +21,7 @@ namespace synth {
             Button (int p){
                 _pin = p;
                 
-                pinMode(_pin, INPUT);
-
-                // Turn on pullup resistor
-                digitalWrite(_pin, HIGH); 
+                pinMode(_pin, INPUT_PULLUP);
             }
             ~Button (){}
 
