@@ -12,6 +12,7 @@ namespace synth {
             Time (){}
             ~Time (){}
 
+            static void tick();
             static unsigned long deltaTime();
         
         private:

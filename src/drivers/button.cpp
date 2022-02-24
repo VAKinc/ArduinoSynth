@@ -23,7 +23,6 @@ namespace synth{
             }
             else if(_state == BTN_PRESSED && button_value == HIGH){
                 _state = BTN_NEUTRAL;
-                Serial.println("Button released.");
 
                 return true;
             }

@@ -6,8 +6,11 @@ namespace synth{
      * Updates delta time value and returns the updated value;
     */
 
-    unsigned long Time::deltaTime(){
+    void Time::tick(){
         _delta_time = millis();
+    }
+
+    unsigned long Time::deltaTime(){
         return _delta_time;
     }
 

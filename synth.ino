@@ -1,5 +1,6 @@
 #include "src/drivers/button.hh"
 #include "src/drivers/led.hh"
+#include "src/core/time.hh"
 
 using namespace synth;
 
@@ -16,6 +17,8 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
+    Time::tick();
+
     if(toggle_button.getButton()){
         light.toggle();
     }
