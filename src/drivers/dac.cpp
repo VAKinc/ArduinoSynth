@@ -8,6 +8,7 @@ namespace synth{
      * @brief Initialize the DAC
      */
     void DAC::init(){
+        //TODO: Check if this is actually necessary, SPI.begin() should handle this
         pinMode(_cipo_pin,  OUTPUT);   // Set SPI control PINs to output.
         pinMode(_sck_pin, OUTPUT);
         pinMode(_cs_and_ldac_pin, OUTPUT);
@@ -33,6 +34,7 @@ namespace synth{
         v |= 0xf000; // Bitmask B12-B15 to 1
         if (!AB)  v &= ~0x8000; // When zero clear B15 for A.
 
+        //TODO: check if these digital writes are necessary, or if begin/endTransaction handle that
         SPI.beginTransaction(_settings);
         digitalWrite(_sck_pin, LOW); // Data is clocked in on the rising edge, so set clock low
         SPI.transfer((0xff00 & v) >> 8); // Bitmask the first half of the message and send it (4 control bits plus 4 bits of the 12 bit value)
