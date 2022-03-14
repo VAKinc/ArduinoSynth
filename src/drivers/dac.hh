@@ -15,6 +15,7 @@ namespace synth {
                 _cipo_pin = 11;
                 _sck_pin = 13;
                 _cs_and_ldac_pin = 10;
+                _settings = SPISettings(16000000, MSBFIRST, SPI_MODE0);
             }
             ~DAC (){}
 

@@ -12,8 +12,6 @@ namespace synth{
         pinMode(_sck_pin, OUTPUT);
         pinMode(_cs_and_ldac_pin, OUTPUT);
 
-        _settings =  SPISettings(16000000, MSBFIRST, SPI_MODE0);
-
         SPI.begin();
 
         Serial.println("MCP4922 SPI Dual DAC SPI hardware mode");
