@@ -1,29 +1,31 @@
-#include "src/drivers/button.hh"
-#include "src/drivers/analog_led.hh"
-#include "src/drivers/audio_out.hh"
+#include "src/drivers/dac.hh"
 #include "src/core/time.hh"
 
 using namespace synth;
 
-Button toggle_button(2);
-AnalogLED light(11, 20, 100, 255);
-AudioOut output(9, 10);
+DAC dac;
+
+// Sine Wave
+const uint16_t SineLookup_5bits[32]
+{
+    2048, 2447, 2831, 3185, 3495, 3750, 3939, 4056,
+    4095, 4056, 3939, 3750, 3495, 3185, 2831, 2447,
+    2048, 1648, 1264,  910,  600,  345,  156,   39,
+    0,   39,  156,  345,  600,  910, 1264, 1648
+};
 
 void setup() {
-    // initialize digital pin LED_BUILTIN as an output.
-    pinMode(LED_BUILTIN, OUTPUT);
-
     // Set Serial Baud rate
     Serial.begin(9600);
 
-    output.genTone();
+    dac.init();
 }
 
 // the loop function runs over and over again forever
 void loop() {
     Time::tick();
 
-    if(toggle_button.getButton()){
-        light.toggle();
+    for (int i = 0; i < pow(2, 5); i++) {
+        dac.write( 0, SineLookup_5bits[i] );
     }
 }

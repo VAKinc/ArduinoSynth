@@ -2,7 +2,6 @@
 #define SYNTH_AUDIO_OUT_H_
 
 #include "Arduino.h"
-// #include "<stdexcept>"
 
 namespace synth {
 
