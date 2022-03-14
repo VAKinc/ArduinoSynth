@@ -19,6 +19,7 @@ void setup() {
     Serial.begin(9600);
 
     dac.init();
+    noInterrupts();
 }
 
 // the loop function runs over and over again forever

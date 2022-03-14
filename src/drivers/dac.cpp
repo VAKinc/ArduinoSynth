@@ -15,7 +15,6 @@ namespace synth{
         SPI.begin();
 
         Serial.println("MCP4922 SPI Dual DAC SPI hardware mode");
-        noInterrupts();
     }
 
     /**
