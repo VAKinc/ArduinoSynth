@@ -13,8 +13,6 @@ namespace synth{
         pinMode(_cs_and_ldac_pin, OUTPUT);
 
         SPI.begin();
-
-        Serial.println("MCP4922 SPI Dual DAC SPI hardware mode");
     }
 
     /**
